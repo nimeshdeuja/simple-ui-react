@@ -1,0 +1,31 @@
+{
+  "name": "@ndeuja/simple-ui-react",
+  "version": "1.0.0",
+  "description": "Simple ui components in react.",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "react-scripts test"
+  },
+  "keywords": [],
+  "author": "Nimesh Deuja",
+  "license": "",
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.5",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.4"
+  }
+}
