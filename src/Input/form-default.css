@@ -1,0 +1,210 @@
+.simple-form {
+  --marginBottom: 10px;
+  --smallMarginBottom: 5px;
+  --paddingTop: 20px;
+  --fontSize: 14px;
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --borderColor: 1px solid rgba(0, 0, 0, 0.0625);
+  --color: #222;
+  --background: #fff;
+  --borderRadius: 3px;
+  --size: 4px;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Input filed start */
+.default .custom-field {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  padding-top: var(--paddingTop);
+}
+.default .custom-field input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+  width: 100%;
+  position: relative;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  padding-top: var(--paddingTop);
+  margin-bottom: var(--marginBottom);
+}
+
+.default .custom-field input {
+  padding: 10px;
+  width: calc(100% - 22px);
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.default .custom-field .placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.placeholder::first-letter {
+  text-transform: capitalize;
+}
+/* Input filed end */
+/* Select Style start*/
+.default .custom-select {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  margin-bottom: var(--marginBottom);
+  padding-top: var(--paddingTop);
+}
+.default .custom-select .holder {
+  position: relative;
+}
+.default .custom-select .holder select {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px 40px 10px 10px;
+  width: 100%;
+  outline: none;
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.default .custom-select .holder .arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #dcdcdc;
+  height: 100%;
+  width: 30px;
+  border-radius: 0 3px 3px 0;
+  pointer-events: none;
+}
+.default .custom-select .holder .arrow::before,
+.default .custom-select .holder .arrow::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.default .custom-select .holder .arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid #555555;
+  top: 35%;
+}
+.default .custom-select .holder .arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid #555555;
+  top: 65%;
+}
+.default .custom-select .placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Select Style end*/
+/* Textarea Style start*/
+.default .custom-textarea {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  padding-top: var(--paddingTop);
+  margin-bottom: var(--marginBottom);
+}
+.default .custom-textarea textarea {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+  padding: 10px;
+  width: calc(100% - 22px);
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.default .custom-textarea .placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* Textarea Style end*/
+
+.default .showHidePassword {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  height: 38px;
+  width: 30px;
+  background-color: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555555;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eye {
+  width: 11px;
+  height: 11px;
+  border: solid 1px #555555;
+  border-radius: 75% 15%;
+  position: relative;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slash > div {
+  margin-top: 0;
+  margin-left: -3px;
+  margin-right: -3px;
+  margin-bottom: 1px;
+  height: 1px;
+  width: 17px;
+  background: #555555;
+  z-index: 1;
+}
+.eye:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border: solid 1px #555555;
+  background: #555555;
+  border-radius: 50%;
+}

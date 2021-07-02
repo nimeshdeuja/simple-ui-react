@@ -1,0 +1,196 @@
+.simple-form {
+  --marginBottom: 10px;
+  --smallMarginBottom: 5px;
+  --paddingTop: 20px;
+  --fontSize: 14px;
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --borderColor: 1px solid rgba(0, 0, 0, 0.0625);
+  --color: #222;
+  --background: #fff;
+  --borderRadius: 3px;
+  --size: 5px;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Input filed start */
+.outline .custom-field {
+  padding-top: 10px;
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+}
+.outline .custom-field input {
+  padding: 10px;
+  width: calc(100% - 22px);
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  color: var(--color);
+  border: var(--borderColor);
+}
+
+.outline .custom-field .placeholder {
+  position: absolute;
+  left: 12px;
+  top: calc(50%);
+  color: #aaa;
+  background: transparent;
+  transform: translateY(-50%);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+.outline .custom-field input.focused + .placeholder,
+.outline .custom-field input:focus + .placeholder {
+  top: 10px;
+  font-size: 12px;
+  color: #1344d0;
+  background-color: #fff;
+  padding: 0 2px;
+}
+/* Input filed end */
+/* Select Style start*/
+.outline .custom-select {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  margin-bottom: var(--marginBottom);
+  padding-top: 10px;
+}
+
+.outline .custom-select .holder {
+  position: relative;
+}
+.outline .custom-select .holder select {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px 40px 10px 10px;
+  width: 100%;
+  outline: none;
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.outline .custom-select .holder .arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #dcdcdc;
+  height: 100%;
+  width: 30px;
+  border-radius: 0 3px 3px 0;
+  pointer-events: none;
+}
+.outline .custom-select .holder .arrow::before,
+.outline .custom-select .holder .arrow::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.outline .custom-select .holder .arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid #555555;
+  top: 35%;
+}
+.outline .custom-select .holder .arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid #555555;
+  top: 65%;
+}
+.outline .custom-select .placeholder {
+  position: absolute;
+  left: 12px;
+  top: calc(50% - 4px);
+  color: #aaa;
+  background: transparent;
+  transform: translateY(-50%);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+.outline .custom-select .placeholder.focused {
+  top: 10px;
+  font-size: 12px;
+  color: #1344d0;
+  background-color: #fff;
+  padding: 0 2px;
+}
+
+/* Select Style end*/
+/* Textarea Style start*/
+.outline .custom-textarea {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  padding-top: var(--paddingTop);
+  margin-bottom: var(--marginBottom);
+}
+.outline .custom-textarea textarea {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+  padding: 10px;
+  width: calc(100% - 22px);
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.outline .custom-textarea .placeholder {
+  position: absolute;
+  left: 12px;
+  top: calc(20% - 4px);
+  color: #aaa;
+  background: transparent;
+  transform: translateY(-50%);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+.outline .custom-textarea textarea.focused + .placeholder,
+.outline .custom-textarea textarea:focus + .placeholder {
+  top: 20px;
+  font-size: 12px;
+  color: #1344d0;
+  background-color: #fff;
+  padding: 0 2px;
+}
+/* Textarea Style end*/
+
+.outline .showHidePassword {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  height: 38px;
+  width: 30px;
+  background-color: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555555;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

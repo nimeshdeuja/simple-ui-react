@@ -1,0 +1,101 @@
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modalContent {
+  margin: auto;
+  padding: 0;
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%);
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+}
+.modalContent > h2 {
+  margin: 0;
+  padding: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.modalContent > h2 > span {
+  margin-left: auto;
+  font-weight: 400;
+  cursor: pointer;
+  color: rgb(0, 0, 0, 0.2);
+  border:none;
+}
+.modalContent > h2 > span:hover {
+  color: rgb(0, 0, 0, 1);
+}
+
+.main {
+  padding: 10px;
+}
+
+.footer {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+  align-items: center;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.0625);
+}
+
+.multiple {
+  justify-content: flex-start;
+}
+
+/* Modal theme */
+
+.default {
+  color: rgb(0, 0, 0);
+}
+
+.danger > h2 {
+  color: rgb(244, 67, 54);
+}
+.danger > main {
+  color: rgb(244, 67, 54);
+}
+
+.primary > h2 {
+  color: rgb(30, 144, 255);
+}
+
+.secandary > h2 {
+  color: rgb(50, 205, 50);
+}
+
+/* Modal size */
+.sm {
+  max-width: 480px;
+}
+
+.md {
+  max-width: 768px;
+}
+
+.lg {
+  max-width: 991px;
+}

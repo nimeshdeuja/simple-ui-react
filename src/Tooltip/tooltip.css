@@ -1,0 +1,36 @@
+.simple-tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 9999;
+  font-size: 12px;
+}
+
+.simple-arrow-top {
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.simple-arrow-left {
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #555;
+}
+.simple-arrow-right {
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #555 transparent transparent;
+}
+.simple-arrow-bottom {
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}

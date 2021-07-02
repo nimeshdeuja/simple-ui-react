@@ -1,0 +1,118 @@
+.simple-form {
+  --marginBottom: 10px;
+  --smallMarginBottom: 5px;
+  --paddingTop: 20px;
+  --fontSize: 14px;
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --borderColor: 1px solid rgba(0, 0, 0, 0.0625);
+  --color: #222;
+  --background: #fff;
+  --borderRadius: 3px;
+  --size: 6px;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.left > input {
+  margin: 0;
+  margin-left: 5px !important;
+}
+.right > input {
+  margin: 0;
+  margin-right: 5px !important;
+}
+
+.half {
+  width: calc((100% - 20px) / 2) !important;
+}
+.last {
+  margin-left: 20px;
+}
+.error * {
+  color: rgb(244, 67, 54) !important;
+}
+.error input,
+.error select,
+.error textarea {
+  color: rgb(244, 67, 54) !important;
+  border: 1px solid rgba(244, 67, 54) !important;
+}
+.error .arrow,
+.error .showHidePassword {
+  color: rgba(255, 255, 255, 0.5) !important;
+  background-color: rgba(244, 67, 54) !important;
+}
+.error .arrow::before {
+  border-bottom: var(--size) solid rgba(255, 255, 255, 0.5) !important;
+}
+.error .arrow::after {
+  border-top: var(--size) solid rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Radio Style start*/
+.custom-radio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: var(--marginBottom);
+}
+.custom-radio .placeholder {
+  width: 100%;
+  margin-bottom: var(--smallMarginBottom);
+}
+.custom-radio label {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-radio label input {
+  margin: 0;
+  padding: 0;
+}
+/* Radio Style end*/
+/* Checkbos Style start*/
+.custom-checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--marginBottom);
+}
+.custom-checkbox label {
+  cursor: pointer;
+}
+.custom-checkbox .title {
+  width: 100%;
+  margin-bottom: var(--smallMarginBottom);
+}
+/* Checkbos Style end*/
+.custom-field input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+  width: 100%;
+  position: relative;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  padding-top: var(--paddingTop);
+  margin-bottom: var(--marginBottom);
+}
+
+.fileUploader {
+  z-index: 0;
+  padding: 10px;
+  border: var(--borderColor);
+  border-radius: var(--borderRadius);
+}
