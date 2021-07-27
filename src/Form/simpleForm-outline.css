@@ -1,0 +1,99 @@
+.outline {
+  --marginBottom: 15px;
+  --inputPadding: 5px;
+  --paddingTop: 20px;
+  --fontSize: 14px;
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --borderColor: 1px solid rgba(0, 0, 0, 0.0625);
+  --color: rgb(34, 34, 34);
+  --white: #fff;
+  --gray: #aaa;
+  --borderRadius: 4px;
+  --size: 6px;
+  --red: rgb(180, 3, 3);
+  --green: rgb(0, 194, 81);
+  --arrowBg: #dcdcdc;
+  --arrowColor: #555555;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+.outline input {
+  padding: 5px 10px;
+  width: calc(100% - 22px);
+  border-radius: var(--borderRadius);
+  background: var(--white);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.outline .holder {
+  margin-top: 0;
+}
+.outline label {
+  position: absolute;
+  left: 10px;
+  top: calc(50% - 10px);
+  color: var(--color);
+  background: transparent;
+  transform: translateY(-50%);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.outline textarea {
+  margin-top: 0;
+}
+
+.outline .placeholder {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  color: var(--color);
+  pointer-events: none;
+  background: transparent;
+  transform: translateY(-50%);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+.outline span.error {
+  width: 100%;
+  margin-top: 5px;
+}
+.outline input.focused + .placeholder,
+.outline input:focus + .placeholder,
+.outline .focused + .placeholder {
+  top: 0 !important;
+  color: var(--gray);
+  background-color: var(--white);
+  padding: 0 2px;
+}
+.outline .placeholder-select {
+  top: 0 !important;
+  pointer-events: none;
+  color: var(--gray) !important;
+  background-color: var(--white) !important;
+}
+
+.outline .placeholder-textarea {
+  top: 20px !important;
+  pointer-events: none;
+}
+.outline textarea.focused + .placeholder-textarea,
+.outline textarea:focus + .placeholder-textarea {
+  top: 0 !important;
+  color: var(--gray) !important;
+  background-color: var(--white) !important;
+}
+
+.outline.sm .placeholder {
+  top: 18px;
+}
+.outline.md .placeholder {
+  top: 22px;
+}
+.outline.lg .placeholder {
+  top: 24px;
+}

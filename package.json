@@ -1,6 +1,6 @@
 {
   "name": "@ndeuja/simple-ui-react",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "Simple ui components in react.",
   "main": "lib/index.js",
   "types": "lib",
@@ -9,18 +9,24 @@
     "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css lib/",
     "test": "react-scripts test",
     "build": "npm run clean && tsc -p . && npm run copy-files",
-    "create":"npm run build && npm publish"
+    "create": "npm run build && npm publish"
   },
   "keywords": [],
   "author": "Nimesh Deuja",
-  "license": "",
+  "license": "ISC",
   "peerDependencies": {
     "react": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimeshdeuja/simple-ui-react.git"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.3.1",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "copyfiles": "^2.4.1",
@@ -28,7 +34,6 @@
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.3",
     "typescript": "^4.3.5"
   }
 }

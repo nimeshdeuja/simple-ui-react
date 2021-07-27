@@ -1,6 +1,6 @@
 import {ReactNode} from 'react'
 
-import styles from "./dialog.module.css";
+import styles from "./Dialog.module.css";
 
 type Sizes = 'sm'|'md'|'lg'
 type Themes = 'default'|'primary'|'secandary'|'danger'
@@ -14,17 +14,16 @@ interface Props {
     className?:string,
     children:ReactNode
 }
-
-export const Dailog = ({close, title, size='md', theme='default', open, className='', children}:Props) =>{
+export const Dialog = ({close, title, size='md', theme='default', open, className='', children}:Props) =>{
     const closeAllClickHandler = (event:any) => {
       if (event.target && event.target.title === title) {
         close();
       }
     };
   
-    let dailogElement = null;
+    let dialogElement = null;
     if (open)
-      dailogElement = (
+      dialogElement = (
         <div
           className={`${styles.modal} ${className}`}
           onClick={closeAllClickHandler}
@@ -44,15 +43,14 @@ export const Dailog = ({close, title, size='md', theme='default', open, classNam
           </div>
         </div>
       );
-    return dailogElement;
+    return dialogElement;
   };
 
 interface PropsBody {
     className?:string, 
     children:ReactNode
 }
-
-export const DailogBody = ({className='', children}:PropsBody) => (
+export const DialogBody = ({className='', children}:PropsBody) => (
   <div className={`${styles.main} ${className}`} data-testid='test-body'>
     {children}
   </div>
@@ -65,8 +63,7 @@ interface PropsFooter {
     className?:string,
     children:ReactNode
 }
-
-export const DailogFooter = ({multiple,className='',children}:PropsFooter) => {
+export const DialogFooter = ({multiple,className='',children}:PropsFooter) => {
   return (
     <div
       className={`${styles.footer} ${styles[multiple]} ${className}`}

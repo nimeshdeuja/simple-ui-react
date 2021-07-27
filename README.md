@@ -29,7 +29,7 @@ import { Button } from "@ndeuja/simple-ui-react";
   className="myClass"
   theme="default"
   type="button"
-  clicked={() => console.log("simple button was clicked!")}
+  clicked={() => console.log("Button has been clicked!")}
   icon={""} // you add SVG icon
   text="Click me"
 />;
@@ -38,220 +38,234 @@ import { Button } from "@ndeuja/simple-ui-react";
 ## Dialog
 
 ```jsx
-import {  Dailog, DailogBody, DailogFooter, } from "@ndeuja/simple-ui-react";
+import {  SimpleDialog } from "@ndeuja/simple-ui-react";
+const {Dialog, DialogBody, DialogFooter} = SimpleDialog;
 
 <Dialog
+  close={()=>}
+  title="Simple dialog box"
   theme="default"
   size="md"
-  close={()=>}
   open={true}
-  title="Simple dialog box"
   className="myClass"
 >
-    <DailogBody
+    <DialogBody
       className="myClass"
     >
       Dialog box body content.
-    </DailogBody>
-    <DailogFooter
+    </DialogBody>
+    <DialogFooter
       multiple={true}
       className="myClass"
     >
     Dialog box footer content.
-    </DailogFooter>
+    </DialogFooter>
 </Dialog>
 ```
 
-## Input
+## Form
 
 ```jsx
-import { Input, Form, CheckValidity } from "@ndeuja/simple-ui-react";
+import { SimpleForm, SimpleUtility } from "@ndeuja/simple-ui-react";
+import ptLocale from "date-fns/locale/pt";
 
-const [isValid, setIsValid] = useState(false);
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
+import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
 
-const [form, setForm] = useState({
-  name: {
-    elementType: "input",
-    elementConfig: {
-      type: "text",
-      placeholder: "Name",
-    },
-    value: "",
-    validation: {
-      required: true,
-      min: 6,
-      max: 30,
-    },
-    valid: false,
-    touched: false,
-    className: "myClass",
-    inputStyle: {
-      width: "half",
-      isLast: false,
-    },
-  },
-  password: {
-    elementType: "input",
-    elementConfig: {
-      type: "password",
-      placeholder: "Password",
-      showPassword: true,
-      id: "password", // Id should be unique.
-    },
-    value: "",
-    validation: {
-      required: true,
-      min: 6,
-      max: 30,
-    },
-    valid: false,
-    touched: false,
-    inputStyle: {
-      width: "half",
-      isLast: true,
-    },
-  },
-  email: {
-    elementType: "input",
-    elementConfig: {
-      type: "text",
-      placeholder: "Email",
-    },
-    value: "",
-    validation: {
-      required: true,
-      min: 6,
-      max: 30,
-    },
-    valid: false,
-    touched: false,
-  },
-  occupation: {
-    elementType: "select",
-    elementConfig: {
-      placeholder: "Your occupation",
-      options: [
-        { id: "1", name: "Select", value: "" },
-        { id: "2", name: "Developer", value: "developer" },
-        { id: "3", name: "UI/UX Designer", value: "designer" },
-      ],
-    },
-    value: "", // selected value can be options id
-    validation: {
-      required: true,
-    },
-    valid: false,
-    touched: false,
-  },
-  status: {
-    elementType: "checkbox",
-    elementConfig: {
-      label: "Looking for full time job?",
-      placeholder: "Yes i am!",
-      labelText: "right",
-    },
-    value: true,
-    validation: {
-      required: true,
-      checkbox: true,
-    },
-    valid: false,
-    touched: false,
-  },
-  maritalStatus: {
-    elementType: "radio",
-    elementConfig: {
-      placeholder: "Are you married?",
-      labelText: "right",
-      options: [
-        { label: "Yes", value: "yes", name: "yesNo" },
-        { label: "No", value: "no", name: "yesNo" },
-      ],
-    },
-    value: "", // selected value can be options value
-    validation: {},
-    valid: false,
-    touched: false,
-  },
-  file: {
-    elementType: "file",
-    elementConfig: {
-      placeholder: "Upload CV",
-      id: "upload_file",
-    },
-    value: "",
-    validation: {},
-    valid: false,
-    touched: false,
-  },
-  feedback: {
-    elementType: "textarea",
-    elementConfig: {
-      placeholder: "Your feedback",
-      rows: 10,
-    },
-    value: "",
-    validation: {
-      required: true,
-      min: 6,
-      max: 100,
-    },
-    valid: false,
-    touched: false,
-  },
-});
-
-const inputChangeHandler = (value, controlName) => {
-  let updatedForm = UpdateObject(form, {
-    [controlName]: UpdateObject(form[controlName], {
-      value: value,
-      valid: CheckValidity(value, form[controlName].validation),
-      touched: true,
-    }),
-  });
-
-  let validElement = true;
-
-  for (let inputIdentifier in updatedForm) {
-    validElement = updatedForm[inputIdentifier].valid && validElement;
-  }
-
-  setForm(updatedForm);
-  setIsValid(validElement);
+type autocompleteType = {
+  value: string,
+  label: string,
+  id: string | number,
+  icon?: string,
 };
 
-const formElementsArray = [];
-for (let key in form) {
-  formElementsArray.push({
-    id: key,
-    config: form[key],
-  });
-}
-
-const submitClickHandler = (event) => {
-  const toSend = {};
-  for (let key in form) {
-    toSend[key] = form[key].value;
-  }
+type objectTypes = {
+  dateofBirth?: Date,
+  hobbies?: autocompleteType[],
 };
+
+const {
+  UpdateObject,
+  UpdateArray,
+  ShortArray,
+  GetIndexBy,
+  ShortNameGenerate,
+  GetUniqueId,
+} = SimpleUtility;
+
+const { SimplePreventAlphabet, SimpleOnBlur, Message, Form, InputGroup } =
+  SimpleForm;
+
+const [data, setData] =
+  useState <
+  objectTypes >
+  {
+    dateofBirth: new Date("2021-07-07"),
+    hobbies: [
+      { value: "Fishfarming", label: "Fishfarming", id: "Fishfarming" },
+    ],
+  };
+
+const onSubmit = () => console.log(data);
+const inputChangeHandler = (e: any) =>
+  setData((prev) => UpdateObject(prev, { [e.target.name]: e.target.value }));
+const dateChangeHandler = (date: MaterialUiPickersDate) =>
+  setData((prev) => UpdateObject(prev, { dateofBirth: date }));
+const selectChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
+  setData((prev) => UpdateObject(prev, { occupation: e.target.value }));
+const autocompleteChangeHandler = (data: autocompleteType[]) =>
+  setData((prev) => UpdateObject(prev, { hobbies: data }));
+const checkboxChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+  setData((prev) => UpdateObject(prev, { [e.target.name]: e.target.checked }));
 
 return (
-  <Form submit={submitClickHandler} layout="default">
-    {formElementsArray.map((formElement) => (
-      <Input
-        key={formElement.id}
-        elementType={formElement.config.elementType}
-        elementConfig={formElement.config.elementConfig}
-        label={formElement.config.label}
-        value={formElement.config.value}
-        changed={(value, event) => inputChangeHandler(value, formElement.id)}
-        invalid={!formElement.config.valid}
-        shouldValidate={formElement.config.validation ? true : false}
-        touched={formElement.config.touched}
-        className={formElement.config.className}
-        inputStyle={formElement.config.inputStyle}
+  <Form
+    size="md"
+    layout="outline"
+    onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}
+  >
+    <InputGroup
+      name="fullName"
+      placeholder="Full Name"
+      inputElement={{
+        name: "fullName",
+        type: "text",
+        //className: 'focused',
+        //defaultValue: '',
+        onChange: inputChangeHandler,
+      }}
+    />
+    <InputGroup
+      type="date"
+      name="dateofBirth"
+      placeholder="Date of birth meterial"
+    >
+      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptLocale}>
+        <DatePicker
+          name="dateofBirth"
+          format="yyyy-MM-dd"
+          views={["year", "month", "date"]}
+          onChange={dateChangeHandler}
+          value={data.dateofBirth}
+          InputProps={{ disableUnderline: true }}
+        />
+      </MuiPickersUtilsProvider>
+    </InputGroup>
+    <InputGroup
+      name="age"
+      placeholder="Age"
+      inputElement={{
+        name: "age",
+        type: "number",
+        onChange: inputChangeHandler,
+      }}
+    />
+    <InputGroup name="email" placeholder="Email">
+      <input
+        name="email"
+        type="email"
+        onBlur={SimpleOnBlur}
+        onChange={inputChangeHandler}
       />
-    ))}
+    </InputGroup>
+    <InputGroup
+      type="select"
+      name="occupation"
+      placeholder="Occupation"
+      inputElement={{
+        name: "occupation",
+        defaultValue: "Programmer",
+        options: [
+          { value: "Designer", label: "Designer" },
+          { value: "Programmer", label: "Programmer" },
+        ],
+        onChange: selectChangeHandler,
+      }}
+    />
+    <InputGroup
+      type="autocomplete"
+      name="hobbies"
+      placeholder="hobbies"
+      inputElement={{
+        id: "hobbies",
+        list: [
+          {
+            value: "Acroyoga",
+            label: "Acroyoga",
+            id: "Acroyoga",
+          },
+          { value: "Conlanging", label: "Conlanging", id: "Conlanging" },
+          { value: "Fishfarming", label: "Fishfarming", id: "Fishfarming" },
+        ],
+        change: autocompleteChangeHandler,
+        selected: [
+          { value: "Fishfarming", label: "Fishfarming", id: "Fishfarming" },
+        ],
+        placeholder: "hobbies...",
+        inputPlaceholder: "search hobbies...",
+        emptyText: "No hobbies to display",
+        multiple: true,
+        clear: true,
+      }}
+    />
+    <InputGroup
+      type="password"
+      name="password"
+      placeholder="Password"
+      inputElement={{
+        name: "password",
+        type: "password",
+        id: "password",
+        autoComplete: "password-new",
+        onChange: inputChangeHandler,
+      }}
+    />
+    <InputGroup type="password" name="rePassword" placeholder="Re-Password">
+      <input
+        name="rePassword"
+        type="password"
+        autoComplete="new-password"
+        id="rePassword"
+        onBlur={SimpleOnBlur}
+        onChange={inputChangeHandler}
+      />
+    </InputGroup>
+    <InputGroup
+      type="radio"
+      name="gender"
+      placeholder="Gender"
+      inputElement={{
+        name: "gender",
+        onChange: inputChangeHandler,
+        options: [
+          { value: "Mail", label: "Mail" },
+          { value: "Femail", label: "Femail" },
+        ],
+      }}
+    />
+
+    <InputGroup
+      type="checkbox"
+      name="privacy"
+      placeholder="Privacy"
+      inputElement={{
+        name: "privacy",
+        onChange: checkboxChangeHandler,
+        label: "Accept all privacy",
+      }}
+    />
+
+    <InputGroup
+      type="textarea"
+      name="feedback"
+      placeholder="feedback"
+      inputElement={{
+        onChange: inputChangeHandler,
+        rows: 10,
+      }}
+    />
+    <input type="submit" onClick={onSubmit} />
   </Form>
 );
 ```

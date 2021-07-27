@@ -1,0 +1,13 @@
+.autocomplete {
+  margin: 0;
+  padding: 0;
+}
+
+/* .autocomplete .optionList {
+  display: none;
+}
+.autocomplete input.focused + .optionList,
+.autocomplete input:focus + .optionList {
+  display: block;
+}
+ */

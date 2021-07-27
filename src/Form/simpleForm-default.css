@@ -1,0 +1,52 @@
+.default {
+  --marginBottom: 15px;
+  --inputPadding: 5px;
+  --paddingTop: 20px;
+  --fontSize: 14px;
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --borderColor: 1px solid rgba(0, 0, 0, 0.0625);
+  --color: rgb(34, 34, 34);
+  --background: #fff;
+  --borderRadius: 4px;
+  --size: 6px;
+  --red: rgb(180, 3, 3);
+  --green: rgb(0, 194, 81);
+  --arrowBg: #dcdcdc;
+  --arrowColor: #555555;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+.default input {
+  margin-top: 20px;
+  width: calc(100% - 12px);
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.default textarea {
+  margin-top: 20px;
+}
+.default .holder {
+  margin-top: 20px;
+}
+.default label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.default span {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.default .withIcon .placeholder {
+  margin-top: -20px;
+}

@@ -1,0 +1,544 @@
+.inputField {
+  --marginBottom: 15px;
+  --inputPadding: 5px;
+  --paddingTop: 20px;
+  --fontSize: 14px;
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --borderColor: 1px solid rgba(0, 0, 0, 0.0625);
+  --color: rgb(34, 34, 34);
+  --background: #fff;
+  --borderRadius: 4px;
+  --size: 6px;
+  --red: rgb(180, 3, 3);
+  --green: rgb(0, 194, 81);
+  --arrowBg: #dcdcdc;
+  --gray: #aaa;
+  --arrowColor: #555555;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: var(--marginBottom);
+
+  position: relative;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+.inputField input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  padding: var(--inputPadding);
+
+  border: var(--borderColor);
+  border-radius: var(--borderRadius);
+}
+.inputField input[type="checkbox"] {
+  appearance: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+.inputField input[type="radio"] {
+  appearance: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 50% !important;
+}
+.inputField select {
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+  width: 100%;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  padding: var(--inputPadding);
+
+  border: var(--borderColor);
+  border-radius: var(--borderRadius);
+}
+.inputField textarea {
+  resize: vertical;
+  border: none;
+  -webkit-appearance: none;
+  -ms-accelerator: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+
+  padding: var(--inputPadding);
+
+  border: var(--borderColor);
+  border-radius: var(--borderRadius);
+}
+.inputField label {
+  display: flex;
+  align-items: center;
+}
+
+.holder {
+  position: relative;
+  flex-basis: 100%;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: var(--arrowBg);
+  height: 100%;
+  width: 30px !important;
+  border-radius: 0 3px 3px 0;
+  pointer-events: none;
+  margin-top: 0 !important;
+  cursor: pointer;
+}
+/* .arrow::before, */
+.arrow::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* .arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid var(--arrowColor);
+  top: 35%;
+} */
+.arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid var(--arrowColor);
+  top: 50%;
+}
+
+.checkbox label {
+  display: flex;
+  align-items: center;
+  position: unset !important;
+  cursor: pointer;
+}
+.checkbox label input {
+  margin-right: 10px;
+  border: 1px solid #000;
+}
+.radio-col {
+  display: flex;
+  flex-direction: column;
+}
+.radio-col label,
+.radio-row label {
+  display: flex;
+  align-items: center;
+  position: unset !important;
+  cursor: pointer;
+}
+.radio-row label {
+  width: auto !important;
+  margin-right: 10px;
+}
+.radio-col label {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.radio-row {
+  display: flex;
+  flex-direction: row;
+}
+.radio-row label input,
+.radio-col label input {
+  margin-right: 10px;
+}
+
+.password {
+  width: calc(100% - 12px);
+  margin-top: 0 !important;
+}
+.buttonBg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: var(--arrowBg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+  pointer-events: none;
+}
+.buttonBgNoEvent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: var(--arrowBg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+.eye {
+  width: 11px;
+  height: 11px;
+  border: solid 1px var(--arrowColor);
+  border-radius: 75% 15%;
+  position: relative;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slash > div {
+  margin-top: 0;
+  margin-left: -3px;
+  margin-right: -3px;
+  margin-bottom: 1px;
+  height: 1px;
+  width: 17px;
+  background: var(--arrowColor);
+  z-index: 1;
+}
+.eye:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border: solid 1px var(--arrowColor);
+  background: var(--arrowColor);
+  border-radius: 50%;
+}
+
+.error,
+.error * {
+  color: var(--red) !important;
+}
+.error input {
+  border: 1px solid var(--red) !important;
+  /* appearance: unset !important; */
+}
+
+.lg input {
+  min-height: 36px;
+}
+.lg select {
+  min-height: 48px;
+}
+.lg input[type="checkbox"],
+.lg input[type="radio"] {
+  min-height: 24px;
+  max-height: 24px;
+  height: 24px;
+  width: 24px;
+  max-width: 24px;
+  min-width: 24px;
+}
+.md input {
+  min-height: 32px;
+}
+.md select {
+  min-height: 44px;
+}
+.md input[type="checkbox"],
+.md input[type="radio"] {
+  min-height: 18px;
+  max-height: 18px;
+  height: 18px;
+  width: 18px;
+  max-width: 18px;
+  min-width: 18px;
+}
+.sm input {
+  min-height: 26px;
+}
+.sm select {
+  min-height: 48px;
+}
+.sm input[type="checkbox"],
+.sm input[type="radio"] {
+  min-height: 16px !important;
+  max-height: 16px !important;
+  height: 16px !important;
+  width: 16px !important;
+  max-width: 16px !important;
+  min-width: 16px !important;
+}
+
+.sm textarea {
+  min-height: 50px;
+}
+.md textarea {
+  min-height: 70px;
+}
+.lg textarea {
+  min-height: 90px;
+}
+
+.react-datepicker-wrapper {
+  display: unset !important;
+}
+
+.simple-calendar,
+.simple-calendar::before {
+  display: block;
+  box-sizing: border-box;
+}
+.simple-calendar {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--arrowColor);
+  border-top: 4px solid var(--arrowColor);
+  border-radius: 3px;
+}
+.simple-calendar::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  border-radius: 3px;
+  left: 2px;
+  background: currentColor;
+  height: 2px;
+  top: 2px;
+}
+
+.withIcon input {
+  margin-top: 0 !important;
+}
+
+input[type="submit"],
+input[type="button"] {
+  width: 100% !important;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.check label {
+  position: unset !important;
+  cursor: pointer;
+}
+.check label input {
+  margin-right: 10px !important;
+}
+
+/* For React DatePicker */
+.react-datepicker__triangle {
+  transform: translate3d(20px, 0px, 0px) !important;
+}
+.react-datepicker__month-read-view {
+  margin-right: 20px !important;
+}
+.react-datepicker__current-month,
+.react-datepicker__month-read-view--selected-month {
+  text-transform: capitalize !important;
+}
+.react-datepicker__day-name {
+  text-transform: uppercase !important;
+  color: var(--arrowColor);
+  font-size: 0.7rem;
+}
+
+/* For Materual Ui */
+.inputField .MuiTextField-root {
+  width: 100% !important;
+}
+
+/* AutoComplet */
+.autocomplete {
+  position: relative;
+  padding: 5px 10px;
+  border-radius: var(--borderRadius);
+  background: var(--background);
+  color: var(--color);
+  border: var(--borderColor);
+}
+.autocomplete .search {
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 0;
+  width: calc(100% - 4px);
+  z-index: 101;
+  padding: 2px;
+  border-radius: 0 0 var(--borderRadius) var(--borderRadius);
+  background: var(--arrowBg);
+  color: var(--color);
+  border: 1px solid #efefef;
+  border: var(--arrowColor);
+  /* margin-left: -1px; */
+}
+.autocomplete .search input {
+  border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+}
+.autocomplete .search ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow: auto;
+}
+.autocomplete .search ul li {
+  list-style: none;
+  margin: -1px 0 0 0;
+  padding: 5px 10px 5px 5px;
+  border: var(--borderColor);
+  cursor: pointer;
+  color: var(--arrowColor);
+  background: #fbfafa;
+}
+.autocomplete .search ul li:hover,
+.autocomplete .search ul li.isEmpty {
+  background: rgba(243, 243, 243, 1);
+}
+.autocomplete .selected {
+  padding: 5px 0;
+  position: relative;
+}
+.autocomplete .selected ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 50px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.autocomplete .selected ul li {
+  list-style: none;
+  border: var(--borderColor);
+  cursor: pointer;
+  margin-right: 5px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  color: var(--arrowColor);
+}
+li.notSelected {
+  color: var(--gray) !important;
+  text-transform: capitalize;
+}
+li.notSelected,
+li.selected.single {
+  border-width: 0 !important;
+  width: 100% !important;
+}
+li.selected::after {
+  content: "x";
+  margin-left: 10px;
+  color: #d05353;
+}
+li.selected.single::after {
+  content: "";
+}
+.blanket {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.lg .autocomplete .search ul li {
+  padding: 15px;
+}
+.md .autocomplete .search ul li {
+  padding: 10px;
+}
+.sm .autocomplete .search ul li {
+  padding: 5px;
+}
+
+.lg .autocomplete .selected ul li {
+  padding: 5px;
+}
+.md .autocomplete .selected ul li {
+  padding: 3px 5px;
+}
+.sm .autocomplete .selected ul li {
+  padding: 1px 5px;
+}
+
+.autocomplete .clearAll {
+  position: absolute;
+  top: calc(50% - 18px);
+  right: 32px;
+  width: auto !important;
+  cursor: pointer;
+  color: #d05353;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+}
+
+.autocomplete ul li {
+  display: flex;
+  align-items: center;
+}
+.autocomplete ul li img {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari/Edge */
+  color: var(--gray) !important;
+  text-transform: capitalize;
+}
+
+input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--gray) !important;
+  text-transform: capitalize;
+}
+
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: var(--gray) !important;
+  text-transform: capitalize;
+}
+
+.placeholder, .placeholder-textarea, .placeholder-select {
+  text-transform: capitalize;
+}

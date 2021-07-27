@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event'
+import userEvent from '@testing-library/user-event';
 
 import Button from './Button';
 
@@ -11,8 +11,8 @@ describe('Button overall testing',()=>{
         render(<Button className='myClass' theme='danger' clicked={()=>{}} type='submit' text='click' />);
         let btn = screen.getByTestId('test')
         expect(btn).toBeTruthy()
-        expect(btn.className).toContain('myClass')
         expect(btn.className).toContain('danger')
+        expect(btn.className).toContain('myClass')
         expect(btn.className).toContain('button')
         expect(btn.innerHTML).toBe('click')
         expect(btn).toHaveProperty('type','submit')

@@ -1,14 +1,15 @@
-import {Dailog, DailogBody, DailogFooter} from './Dailog'
+import {Dialog, DialogBody, DialogFooter} from './Dialog'
 import {render, fireEvent, cleanup, screen} from '@testing-library/react'
+
 
 afterEach(cleanup)
 
-describe('Dailog box test',()=>{
+describe('Dialog box test',()=>{
 
-    describe('Dailog HTML test',()=>{
-        it('Dailog HTML',()=>{
+    describe('Dialog HTML test',()=>{
+        it('Dialog HTML',()=>{
             let testFunction = jest.fn();
-            render(<Dailog close={testFunction} title='My Dailog' theme='danger' size='lg' open={true} className='myClass'>Test</Dailog>)
+            render(<Dialog close={testFunction} title='My Dialog' theme='danger' size='lg' open={true} className='myClass'>Test</Dialog>)
             let wrapper = screen.getByTestId('test-wrapper')
             let content = screen.getByTestId('test-content')
             let title = screen.getByTestId('test-title')
@@ -16,7 +17,7 @@ describe('Dailog box test',()=>{
             expect(wrapper).toBeTruthy()
             expect(wrapper.className).toContain('myClass')
             expect(wrapper.className).toContain('modal')
-            expect(wrapper).toHaveProperty('title','My Dailog')
+            expect(wrapper).toHaveProperty('title','My Dialog')
             fireEvent.click(wrapper)
             expect(testFunction).toBeCalled()
     
@@ -27,13 +28,13 @@ describe('Dailog box test',()=>{
             expect(content.className).not.toContain('md')
     
             expect(title).toBeTruthy()
-            expect(title.innerHTML).toBe('My Dailog <span>×</span>')
+            expect(title.innerHTML).toBe('My Dialog <span>×</span>')
         })
     })
 
-    describe('Dailog body HTML test',()=>{
+    describe('Dialog body HTML test',()=>{
         it('Body HTML',()=>{
-            render(<DailogBody className='myClass'>body content</DailogBody>)
+            render(<DialogBody className='myClass'>body content</DialogBody>)
             let body = screen.getByTestId('test-body')
 
             expect(body).toBeTruthy()
@@ -44,9 +45,9 @@ describe('Dailog box test',()=>{
         })
     })
 
-    describe('Dailog footer HTML test',()=>{
+    describe('Dialog footer HTML test',()=>{
         it('Footer HTML',()=>{
-            render(<DailogFooter multiple='single' className='myClass'>footer content</DailogFooter>)
+            render(<DialogFooter multiple='single' className='myClass'>footer content</DialogFooter>)
             let footer = screen.getByTestId('test-footer')
 
             expect(footer).toBeTruthy()
